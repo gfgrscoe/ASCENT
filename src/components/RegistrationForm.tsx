@@ -13,9 +13,21 @@ export function RegistrationForm() {
         PLAYER ENROLLMENT
       </h3>
 
-      <p className="text-white/50 font-montserrat text-sm uppercase tracking-widest max-w-md mb-8">
+      <p className="text-white/50 font-montserrat text-sm uppercase tracking-widest max-w-md mb-6">
         Complete the registration form below to enter the arena.
       </p>
+
+      {/* Backup Button */}
+      <motion.a
+        href="https://docs.google.com/forms/d/e/1FAIpQLScJK3ep2efxudF_ukChRFwtNDFdW6kHdLm4af-QNxs-oD6vaA/viewform"
+        target="_blank"
+        rel="noopener noreferrer"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="mb-10 relative overflow-hidden border border-primary/40 px-8 py-3 font-orbitron text-xs tracking-[0.3em] text-white/50 hover:text-white hover:bg-primary/10 transition-all shadow-[0_0_20px_rgba(255,0,96,0.2)]"
+      >
+        OPEN GOOGLE FORM
+      </motion.a>
 
       {/* REQUIRED TARGET DIV */}
       <div

@@ -509,7 +509,7 @@ export default function Home() {
       <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4 z-20 pt-24 md:pt-28">
         {/* Dark overlay only for hero section */}
         <div className="absolute inset-0 bg-black/40 z-0" />
-        
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -599,7 +599,7 @@ export default function Home() {
       {/* Prize Section - Added dark overlay only to this section */}
       <section id="prizes" className="py-32 px-4 relative z-10 overflow-hidden mt-10">
         <div className="absolute inset-0 bg-black/50 z-0" />
-        
+
         <div className="max-w-5xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
@@ -661,8 +661,9 @@ export default function Home() {
 
       {/* Schedule Section - Added dark overlay only to this section */}
       <section id="schedule" className="py-24 px-4 relative z-10 overflow-hidden border-y border-white/20 mt-10">
-        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
-        
+        {/* Softer overlay */}
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm z-0" />
+
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16">
             <motion.p
@@ -672,9 +673,11 @@ export default function Home() {
             >
               {"[ MISSION_LOG_S2 ]"}
             </motion.p>
+
             <h2 className="text-4xl md:text-6xl font-black text-white tracking-widest font-orbitron">
-              MISSION <span className="text-primary drop-shadow-[0_0_10px_rgba(255,0,96,0.5)]">SCHEDULE</span>
+              MISSION <span className="text-primary drop-shadow-[0_0_12px_rgba(255,0,96,0.6)]">SCHEDULE</span>
             </h2>
+
             <div className="w-16 h-1 bg-secondary mx-auto mt-4" />
           </div>
 
@@ -690,10 +693,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative flex items-center gap-6 p-8 bg-black/60 backdrop-blur-xl border border-white/20 hover:border-primary/50 hover:bg-black/70 transition-all duration-500 rounded-sm"
+                className="group relative flex items-center gap-6 p-8 bg-black/40 backdrop-blur-xl border border-white/30 transition-all duration-500 rounded-sm hover:border-primary hover:bg-black/60 hover:shadow-[0_0_30px_rgba(255,0,60,0.35)]"
               >
-                <div className="w-16 h-16 flex flex-col items-center justify-center border border-white/30 font-orbitron group-hover:border-primary transition-colors">
-                  <span className="text-xs text-white/40 group-hover:text-primary transition-colors">
+                {/* Symbol */}
+                <div className="w-16 h-16 flex flex-col items-center justify-center border border-white/40 font-orbitron group-hover:border-primary">
+                  <span className="text-xs text-white/60">
                     {item.symbol}
                   </span>
                   <span className="text-xl font-black text-white">
@@ -701,35 +705,37 @@ export default function Home() {
                   </span>
                 </div>
 
+                {/* Content */}
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 mb-2">
-                    <h4 className="font-orbitron font-black text-xl text-white tracking-widest uppercase group-hover:text-primary transition-colors">
+                    <h4 className="font-orbitron font-black text-xl text-white tracking-widest uppercase">
                       {item.title}
                     </h4>
                     <span className="hidden md:block text-white/20">{"|"}</span>
-                    <span className="text-primary font-mono text-[10px] font-bold tracking-widest">
+                    <span className="text-white font-mono text-[10px] font-bold tracking-widest">
                       {item.round}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <p className="font-mono text-xs text-white/70 uppercase tracking-widest">
-                      {item.date} <span className="mx-2 text-white/20">{"//"}</span> {item.time}
-                    </p>
-                  </div>
+                  <p className="font-mono text-xs text-white/70 uppercase tracking-widest">
+                    {item.date} <span className="mx-2 text-white/30">{"//"}</span> {item.time}
+                  </p>
                 </div>
 
+                {/* Status */}
                 <div className="flex flex-col items-end gap-2">
-                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_#ff003c]" />
-                  <span className="text-[8px] font-mono text-white/50 uppercase tracking-[0.3em] [writing-mode:vertical-lr]">
+                  <div className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_12px_#ff003c]" />
+                  <span className="text-[8px] font-mono text-white/60 uppercase tracking-[0.3em] [writing-mode:vertical-lr]">
                     SECURED
                   </span>
                 </div>
 
+                {/* Sweep */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
               </motion.div>
             ))}
           </div>
+
 
           <div className="mt-16 text-center opacity-90">
             <p className="text-[13px] font-mono text-white uppercase tracking-[0.5em]">
@@ -739,10 +745,11 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Control Room Section - Added dark overlay only to this section */}
       <section id="control-room" className="py-32 px-4 relative z-10 overflow-hidden mt-10">
         <div className="absolute inset-0 bg-black/50 backdrop-blur-sm z-0" />
-        
+
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="absolute inset-0 -z-10 flex items-center justify-center">
             <div className="w-[600px] h-[300px] bg-primary/10 blur-[120px] animate-pulse" />

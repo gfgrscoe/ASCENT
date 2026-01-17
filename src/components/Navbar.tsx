@@ -27,7 +27,7 @@ export default function Navbar() {
     };
 
     window.addEventListener('introComplete', handleIntroComplete);
-    
+
     return () => {
       window.removeEventListener('introComplete', handleIntroComplete);
     };
@@ -36,7 +36,7 @@ export default function Navbar() {
   // Scroll effect with throttle for performance
   useEffect(() => {
     let ticking = false;
-    
+
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
@@ -48,7 +48,7 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -57,10 +57,10 @@ export default function Navbar() {
   const handleASCENTClick = useCallback(() => {
     // Clear the intro completion to restart animation
     sessionStorage.removeItem("introCompleted");
-    
+
     // Clear any other session storage items if needed
     sessionStorage.clear();
-    
+
     // Reload the page to restart from animation
     window.location.href = "/";
   }, []);
@@ -69,7 +69,7 @@ export default function Navbar() {
   if (!showNavbar) return null;
 
   // Calculate navbar background based on state
-  const navbarBackground = scrolled 
+  const navbarBackground = scrolled
     ? "bg-black/95 backdrop-blur-xl border-b border-red-500/20 shadow-lg shadow-red-900/10"
     : "bg-gradient-to-b from-black/80 via-black/40 to-transparent backdrop-blur-lg";
 
@@ -78,12 +78,12 @@ export default function Navbar() {
       {/* Surveillance UI Elements */}
       <div className="absolute inset-0 border border-red-500/10 pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-red-500/50 to-transparent animate-pulse" />
-      
+
       {/* Scanline overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(transparent_95%,rgba(239,68,68,0.05)_100%)] bg-[length:100%_3px] pointer-events-none" />
-      
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex items-center justify-between">
-        
+
         {/* Logo/ASCENT Button - Restarts intro */}
         <button
           onClick={handleASCENTClick}
@@ -97,12 +97,12 @@ export default function Navbar() {
             <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 border border-red-500 [clip-path:polygon(50%_0%,0%_100%,100%_100%)] group-hover:rotate-180 transition-transform duration-500" />
             <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 border border-red-500 group-hover:rotate-45 transition-transform duration-500" />
           </div>
-          
+
           {/* Animated gradient text */}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-white to-red-500 bg-[length:200%_auto] animate-gradient">
             ASCENT
           </span>
-          
+
           {/* Restart indicator */}
           <div className="relative">
             <span className="absolute inset-0 animate-ping bg-red-600 rounded-full opacity-75" />
@@ -116,28 +116,27 @@ export default function Navbar() {
           </div>
         </button>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4 lg:gap-8">
           {navItems.map((item) => (
             <div key={item.id} className="relative group">
-              <Link href={item.href!}>
-                <a className={`px-4 py-2 text-sm font-mono uppercase tracking-[0.3em] transition-all relative overflow-hidden group ${
-                  location === item.href 
-                    ? "text-red-500 font-bold" 
+              <Link
+                href={item.href!}
+                className={`px-4 py-2 text-sm font-mono uppercase tracking-[0.3em] transition-all relative overflow-hidden ${location === item.href
+                    ? "text-red-500 font-bold"
                     : "text-white/70 hover:text-white hover:bg-white/5"
-                }`}>
-                  <span className="relative z-10">{item.label}</span>
-                  <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-red-600 group-hover:w-full group-hover:left-0 transition-all duration-300" />
-                  
-                  {/* Active page indicator */}
-                  {location === item.href && (
-                    <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse shadow-[0_0_8px_#ef4444]" />
-                  )}
-                </a>
+                  }`}
+              >
+                <span className="relative z-10">{item.label}</span>
+                <span className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-red-600 group-hover:w-full group-hover:left-0 transition-all duration-300" />
+
+                {location === item.href && (
+                  <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-red-600 rounded-full animate-pulse shadow-[0_0_8px_#ef4444]" />
+                )}
               </Link>
             </div>
           ))}
         </div>
+
 
         {/* System Status Indicators */}
         <div className="flex items-center gap-3 sm:gap-4">
@@ -149,7 +148,7 @@ export default function Navbar() {
               </div>
               <span className="text-red-500 font-bold tracking-widest whitespace-nowrap">REC ● LIVE</span>
             </div>
-            
+
             <div className="hidden sm:block px-2 sm:px-3 py-1 border border-green-500/30 bg-gradient-to-r from-green-500/5 to-green-500/10 text-green-400 font-bold whitespace-nowrap">
               SYSTEM_ONLINE
             </div>
@@ -162,10 +161,10 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden p-2 border border-white/10 hover:border-red-500/30 transition-colors"
             aria-label="Open menu"
-            // Add your mobile menu handler here
+          // Add your mobile menu handler here
           >
             <div className="space-y-1.5">
               <span className="block w-5 h-0.5 bg-white/70" />
