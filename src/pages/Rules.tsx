@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   FileText,
@@ -7,8 +7,6 @@ import {
   AlertTriangle,
   ShieldAlert,
   CheckCircle2,
-  Volume2,
-  VolumeX
 } from "lucide-react";
 import RulesBg from "../assets/Rules_bg.jpg";
 

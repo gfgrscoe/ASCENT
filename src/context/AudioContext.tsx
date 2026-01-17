@@ -1,5 +1,7 @@
-import { createContext, useContext, useState, useRef, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useRef, useEffect } from "react";
 import mainTheme from "../assets/Round_And_Round_Mingle_1767983924508.mp3";
+import type { ReactNode } from "react";
+
 
 type AudioContextType = {
   isMuted: boolean;

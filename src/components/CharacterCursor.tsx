@@ -53,11 +53,11 @@ const CharacterCursor: React.FC = () => {
     };
   }, []);
 
-  const rotation = useTransform(
-    [mouseX, mouseY],
-    ([mx, my]) =>
-      (Math.atan2(my - charY.get(), mx - charX.get()) * 180) / Math.PI - 90
-  );
+  const rotation = useTransform([mouseX, mouseY], (values) => {
+    const [mx, my] = values as number[];
+    return (Math.atan2(my - charY.get(), mx - charX.get()) * 180) / Math.PI - 90;
+  });
+
 
   return (
     <>

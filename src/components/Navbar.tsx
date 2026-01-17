@@ -2,7 +2,7 @@ import { Link, useLocation } from "wouter";
 import { useState, useEffect, useCallback, useMemo } from "react";
 
 export default function Navbar() {
-  const [location, setLocation] = useLocation();
+  const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
 

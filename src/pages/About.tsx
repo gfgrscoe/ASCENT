@@ -1,13 +1,11 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Activity,
   Eye,
   ShieldCheck,
   Zap,
-  Lock,
   ShieldAlert,
-  Video,
   ChevronRight,
   Clock,
   Users,
@@ -96,7 +94,7 @@ export default function TrialsSection() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-12">
-            {["Cognitive", "Technical", "Psychological"].map((tag, i) => (
+            {["Cognitive", "Technical", "Psychological"].map((tag) => (
               <span
                 key={tag}
                 className="px-4 py-2 border border-white/10 bg-white/5 rounded-full font-mono text-xs text-gray-300 hover:border-red-500/50 hover:text-white transition-all duration-300"

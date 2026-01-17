@@ -11,7 +11,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@shared/*": [
+        "../shared/*"
+      ],
     }
-  }
+  },
+  "noUnusedLocals": false,
+  "noUnusedParameters": false
 }

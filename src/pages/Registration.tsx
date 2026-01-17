@@ -1,5 +1,4 @@
-import { useRef, useState, useEffect } from "react";
-import { Volume2, VolumeX, ShieldAlert, Activity, Lock } from "lucide-react";
+import {  ShieldAlert, Activity, Lock } from "lucide-react";
 import RegiBg from "../assets/Regi_bg.jpg";
 import FloatingShapes from "../components/FloatingShapes";
 import { RegistrationForm } from "../components/RegistrationForm";

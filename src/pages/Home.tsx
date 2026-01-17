@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 // import { useGameStats } from "../hooks/use-players.ts";
 import { Circle, Triangle, Square, FloatingShapes } from "../components/ui/GameShapes.tsx";
@@ -175,7 +175,6 @@ const DdakjiTransition = ({ onComplete }: { onComplete: () => void }) => {
 const IntroOverlay = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<'loader' | 'video' | 'welcome' | 'frontman' | 'conditions'>('loader');
   const [step, setStep] = useState(0);
-  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
     if (phase === 'welcome') {
