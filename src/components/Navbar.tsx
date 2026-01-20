@@ -15,7 +15,13 @@ export default function Navbar() {
   ], []);
 
   // Handle intro completion
+  // Show navbar immediately on all routes except "/"
   useEffect(() => {
+    if (location !== "/") {
+      setShowNavbar(true);
+      return;
+    }
+
     const introCompleted = sessionStorage.getItem("introCompleted") === "true";
     if (introCompleted) {
       setShowNavbar(true);
@@ -26,12 +32,13 @@ export default function Navbar() {
       sessionStorage.setItem("introCompleted", "true");
     };
 
-    window.addEventListener('introComplete', handleIntroComplete);
+    window.addEventListener("introComplete", handleIntroComplete);
 
     return () => {
-      window.removeEventListener('introComplete', handleIntroComplete);
+      window.removeEventListener("introComplete", handleIntroComplete);
     };
-  }, []);
+  }, [location]);
+
 
   // Scroll effect with throttle for performance
   useEffect(() => {
@@ -122,8 +129,8 @@ export default function Navbar() {
               <Link
                 href={item.href!}
                 className={`px-4 py-2 text-sm font-mono uppercase tracking-[0.3em] transition-all relative overflow-hidden ${location === item.href
-                    ? "text-red-500 font-bold"
-                    : "text-white/70 hover:text-white hover:bg-white/5"
+                  ? "text-red-500 font-bold"
+                  : "text-white/70 hover:text-white hover:bg-white/5"
                   }`}
               >
                 <span className="relative z-10">{item.label}</span>
